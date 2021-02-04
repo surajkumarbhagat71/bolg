@@ -1,0 +1,32 @@
+{% extends 'public/base.html' %}
+
+{% block content %}
+    <div class="container">
+    {% load crispy_forms_tags %}
+        <div class="row">
+            <div class="col-lg-8 mx-auto mt-2">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{% url 'singup' %}" method="post">
+                            {% csrf_token %}
+                            <table class="table">
+                                {{ form|crispy }}
+                            </table>
+                            <input type="hidden" value="{{ no1  }} " name="no1">
+                            <input type="hidden" value="{{ operator }} " name="opr">
+                            <input type="hidden" value="{{ no2 }} " name="no2">
+                            <h5 class="ml-2 text-success"><b>{{ no1 }} {{ operator }} {{ no2 }} = ?</b></h5>
+                             <div class="form-group">
+                                <input type="text" placeholder="Enter the above Value" class="form-control" name="captcha" required>
+                            </div>
+
+                             <div class="form-group ">
+                                <input type="submit" class="btn btn-success btn-block mt-3">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

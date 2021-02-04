@@ -1,0 +1,21 @@
+{% extends 'private/base.html' %}
+
+{% block content %}
+    <div class="container mt-2">
+        <div class="row">
+            {% for foo in myblog %}
+            <div class="col-lg-8 mx-auto mt-3">
+                <div class="card shadow-sm">
+                    <div class="card-header"><h5 class="mt-2 mb-2 ml-3"><b>Title : </b>{{ foo.title }}</h5></div>
+                    <div class="card-body shadow-sm">
+                        <img src="{{ foo.image.url }}" alt="" class="card-img-top mt-2" height="300px" width="300px">
+
+                        <h5 class="ml-4 mt-3"><b>Description : </b>{{ foo.description }}</h5>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
