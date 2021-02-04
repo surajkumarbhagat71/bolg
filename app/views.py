@@ -43,8 +43,6 @@ class Singup(View):
         username = request.POST.get('username')
 
         check = eval(str(no1)+opr+str(no2))
-        print(check)
-        print(ans)
 
         #check username langth
         if not (len(username)) >= 10:
